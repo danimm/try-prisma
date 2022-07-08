@@ -18,9 +18,9 @@ export class BooksService {
     return this.prismaService.book.findMany();
   }
 
-  findOne(id: number) {
+  findOne(bookWhereUniqueInput: Prisma.BookWhereUniqueInput) {
     return this.prismaService.book.findUnique({
-      where: { id },
+      where: bookWhereUniqueInput,
     });
   }
 
