@@ -28,14 +28,12 @@ export class BooksController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.booksService.findOne({
-      id: +id,
-    } as Prisma.BookWhereUniqueInput);
+    return this.booksService.findOne({ id: +id });
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
-    return this.booksService.update(+id, updateBookDto);
+    return this.booksService.update({ id: +id }, updateBookDto);
   }
 
   @Delete(':id')
